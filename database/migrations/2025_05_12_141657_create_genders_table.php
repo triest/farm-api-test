@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('genders', function (Blueprint $table) {
+        Schema::create('animal_genders', function (Blueprint $table) {
             $table->id();
             $table->string('name',100)->unique();
             $table->timestamps();

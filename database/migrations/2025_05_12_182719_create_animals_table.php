@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
-            $table->string('--model=Photo --resource --requests',11)->unique();
-
-            $table->foreignId('gender_id');
+            $table->string('number')->unique();
+            $table->foreignId('animal_gender_id');
             $table->foreignId('animal_species_id');
             $table->foreignId('animal_color_id');
             $table->foreignId('animal_object_id');
-            $table->foreignId('animal_owner_id');
             $table->foreignId('animal_owner_id');
             $table->timestamps();
             $table->softDeletesTz();

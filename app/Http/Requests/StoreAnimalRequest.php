@@ -22,11 +22,12 @@ class StoreAnimalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
             'number' => 'required|numeric|unique:animals,number',
-            'gender_id' => 'required|exists:genders,id',
+            'gender_id' => 'required|exists:animal_genders,id',
             'animal_species_id' => 'required|exists:animal_species,id',
             'animal_color_id' => 'required|exists:animal_colors,id',
+            'animal_object_id' => 'required|exists:animal_objects,id',
+            'animal_owner_id' => 'required|exists:animal_owners,id',
         ];
     }
 }
