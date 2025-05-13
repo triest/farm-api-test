@@ -8,10 +8,24 @@ use App\Models\Animal\AnimalObject;
 use App\Models\TransferDocument;
 use App\Models\TransferStatus;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AnimalTransferService
 {
+
+    public static function index(Request $request = null)
+    {
+        $animalTransfers = TransferDocument::query()->paginate();
+
+        return $animalTransfers;
+    }
+
+    public static function get(TransferDocument $transferDocument): TransferDocument
+    {
+        return $transferDocument;
+    }
+
     public static function store(AnimalTransferDTO $animalTransferDTO)
     {
         DB::beginTransaction();
@@ -43,7 +57,6 @@ class AnimalTransferService
         $transferDocument->destinationObject()->associate($distinationObject);
 
         $transferDocument->transferObject()->associate($animal);
-
 
         $transferDocument->status()->associate(TransferStatus::query()->where('slug', 'new')->firstOrFail());
 
@@ -123,5 +136,15 @@ class AnimalTransferService
         }
 
         DB::commit();
+
+        return $transferDocument;
+    }
+
+    public static function destroy(TransferDocument $transferDocument)
+    {
+        DB::beginTransaction();
+        $result = $transferDocument->delete();
+        DB::commit();
+        return $result;
     }
 }
