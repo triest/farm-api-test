@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnimalTransferController;
 use App\Http\Controllers\V1\AnimalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
     Route::prefix('v1')->group(function () {
-        Route::apiResource('animal', AnimalController::class);
+        Route::prefix('animal')->group(function () {
+            Route::apiResource('animal', AnimalController::class);
+            Route::apiResource('transfer', AnimalTransferController::class);
+        });
+
     });
 

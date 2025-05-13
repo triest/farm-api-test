@@ -3,12 +3,12 @@
 namespace App\Service\Animals;
 
 use App\DTO\AnimalDTO;
-use App\Models\Animal;
-use App\Models\AnimalColor;
-use App\Models\AnimalObject;
-use App\Models\AnimalOwner;
-use App\Models\AnimalSpecies;
-use App\Models\AnimalGender;
+use App\Models\Animal\Animal;
+use App\Models\Animal\AnimalColor;
+use App\Models\Animal\AnimalGender;
+use App\Models\Animal\AnimalObject;
+use App\Models\Animal\AnimalOwner;
+use App\Models\Animal\AnimalSpecies;
 use Illuminate\Support\Facades\DB;
 
 class AnimalService
@@ -80,7 +80,7 @@ class AnimalService
         return $newAnimal;
     }
 
-    public static function update($animal,AnimalDTO $animalDTO){
+    public static function update(Animal $animal,AnimalDTO $animalDTO){
         DB::beginTransaction();
 
         $numberExist = Animal::query()->where('id','!=',$animal->id)->where('number',$animalDTO->number)->exists();

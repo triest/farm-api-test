@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Animal;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AnimalGender extends Model
+class AnimalColor extends Model
 {
     use HasFactory;
 }

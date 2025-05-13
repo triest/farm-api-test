@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\AnimalTransfer;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateAnimalRequest extends FormRequest
+class UpdateAnimalTransferRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,9 @@ class UpdateAnimalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'number' => 'numeric',
-            'gender_id' => 'exists:animal_genders,id',
-            'animal_species_id' => 'exists:animal_species,id',
-            'animal_color_id' => 'exists:animal_colors,id',
-            'animal_object_id' => 'exists:animal_objects,id',
-            'animal_owner_id' => 'exists:animal_owners,id',
+            'dispatch_object_id' => 'integer|exists:animal_objects,id',
+            'destination_object_id' => 'integer|exists:animal_objects,id',
+            'status_id' => 'integer|exists:transfer_statuses,id',
         ];
     }
 }

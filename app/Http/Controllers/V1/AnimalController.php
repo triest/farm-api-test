@@ -4,10 +4,10 @@ namespace App\Http\Controllers\V1;
 
 use App\DTO\AnimalDTO;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAnimalRequest;
-use App\Http\Requests\UpdateAnimalRequest;
+use App\Http\Requests\Animal\StoreAnimalRequest;
+use App\Http\Requests\Animal\UpdateAnimalRequest;
 use App\Http\Resources\Animal\AnimalResource;
-use App\Models\Animal;
+use App\Models\Animal\Animal;
 use App\Service\Animals\AnimalService;
 
 class AnimalController extends Controller
