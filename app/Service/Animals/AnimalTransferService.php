@@ -92,13 +92,13 @@ class AnimalTransferService
         }
         $oldStatus = $transferDocument->status;
 
-        if($animalTransferDTO->animal_id) {
+        if ($animalTransferDTO->animal_id) {
             $animal = Animal::query()->where('id', $animalTransferDTO->animal_id)->first();
-        }else{
+        } else {
             $animal = $transferDocument->transferObject;
         }
 
-        if(!$animal) {
+        if (!$animal) {
             throw new \Exception("Animal not found");
         }
 
@@ -130,20 +130,18 @@ class AnimalTransferService
 
         $transferDocument->date = Carbon::now()->toDateTimeString();
 
-        $transferDocument->status()->associate(TransferStatus::query()->where('slug', 'new')->firstOrFail());
+        $transferDocument->status()->associate($transferStatus);
 
         $transferDocument->save();
 
 
         if ($oldStatus->id !== $transferStatus->id && $transferStatus->slug === TransferStatus::STATUS_COMPLETED) {
-            $transferDocument->changeOwner($transferStatus);
+
+            $transferDocument->changeOwner();
         }
 
 
         DB::commit();
-
-       // $transferDocument->load('dispatchObject', 'destinationObject', 'transferObject', 'status');
-
 
         return $transferDocument;
     }
