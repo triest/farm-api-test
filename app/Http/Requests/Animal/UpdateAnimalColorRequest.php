@@ -4,7 +4,7 @@ namespace App\Http\Requests\Animal;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAnimalRequest extends FormRequest
+class UpdateAnimalColorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,7 @@ class StoreAnimalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'number' => 'required|unique:animals,number|max:11',
-            'gender_id' => 'required|exists:animal_genders,id',
-            'animal_species_id' => 'required|exists:animal_species,id',
-            'animal_color_id' => 'required|exists:animal_colors,id',
-            'animal_object_id' => 'required|exists:animal_objects,id',
-            'animal_owner_id' => 'required|exists:animal_owners,id',
+            'name' => 'required|string:max:255|unique:animal_colors,name,'.$this->color->id,
         ];
     }
 }

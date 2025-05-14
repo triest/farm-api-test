@@ -58,11 +58,50 @@
                 "parameters": [
                     {
                         "description": "Animal Data",
-                        "name": "message",
+                        "name": "number",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/api.Animal.Post"
+                        }
+                    },
+                    {
+                        "description": "Animal Data",
+                        "name": "gender_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    },
+                    {
+                        "description": "Animal Data",
+                        "name": "animal_species_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    },
+                    {
+                        "description": "Animal Data",
+                        "name": "animal_color_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    },
+                    {
+                        "description": "Animal Data",
+                        "name": "animal_object_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    },
+                    {
+                        "description": "Animal Data",
+                        "name": "animal_owner_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
                         }
                     }
                 ],
@@ -93,7 +132,7 @@
                 "tags": [
                     "animal"
                 ],
-                "summary": "list of animals",
+                "summary": "animal",
                 "responses": {
                     "200": {
                         "description": "ok",
@@ -123,11 +162,50 @@
                 "parameters": [
                     {
                         "description": "Animal Data",
-                        "name": "message",
+                        "name": "number",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/api.Animal.Post"
+                        }
+                    },
+                    {
+                        "description": "Animal Data",
+                        "name": "gender_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    },
+                    {
+                        "description": "Animal Data",
+                        "name": "animal_species_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    },
+                    {
+                        "description": "Animal Data",
+                        "name": "animal_color_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    },
+                    {
+                        "description": "Animal Data",
+                        "name": "animal_object_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    },
+                    {
+                        "description": "Animal Data",
+                        "name": "animal_owner_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
                         }
                     }
                 ],
@@ -226,12 +304,27 @@
                 "summary": "Add a new transfer",
                 "parameters": [
                     {
-                        "description": "Transfer Data",
-                        "name": "message",
+                        "description": "animal id",
+                        "name": "animal_id",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/api.Transfer.Post"
+                        }
+                    },
+                    {
+                        "description": "Transfer Data",
+                        "name": "dispatch_object_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    },
+                    {
+                        "description": "Transfer Data",
+                        "name": "destination_object_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
                         }
                     }
                 ],
@@ -291,12 +384,27 @@
                 "summary": "Add a new transfer",
                 "parameters": [
                     {
-                        "description": "Transfer Data",
-                        "name": "message",
+                        "description": "animal id",
+                        "name": "animal_id",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/api.Transfer.Post"
+                        }
+                    },
+                    {
+                        "description": "Transfer Data",
+                        "name": "dispatch_object_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    },
+                    {
+                        "description": "Transfer Data",
+                        "name": "destination_object_id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
                         }
                     }
                 ],
@@ -327,13 +435,326 @@
                 ],
                 "summary": "Add a new transfer",
                 "parameters": [
-
                 ],
                 "responses": {
                     "200": {
                         "description": "ok",
                         "schema": {
                             "$ref": "#/definitions/api.Transfer.Get"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/object": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "object"
+                ],
+                "summary": "list of object",
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/api.AnimalObject.Get"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "object"
+                ],
+                "summary": "Add a new object",
+                "parameters": [
+                    {
+                        "description": "object Data",
+                        "name": "message",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api.Objet.Post"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "$ref": "#/definitions/api.AnimalObject.Get"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/object/{ID}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "object"
+                ],
+                "summary": "list of object",
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/api.AnimalObject.Get"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "object"
+                ],
+                "summary": "Add a new object",
+                "parameters": [
+                    {
+                        "description": "object Data",
+                        "name": "message",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api.Objet.Post"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "$ref": "#/definitions/api.AnimalObject.Get"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.APIError"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "object"
+                ],
+                "summary": "Delete object",
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "$ref": "#/definitions/api.AnimalObject.Get"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/color": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "color"
+                ],
+                "summary": "list of colors",
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/api.Simple.Get"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "color"
+                ],
+                "summary": "Add a new color",
+                "parameters": [
+                    {
+                        "description": "object Data",
+                        "name": "name",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "$ref": "#/definitions/api.Simple.Get"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/color/{ID}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "color"
+                ],
+                "summary": "list of color",
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/api.AnimalObject.Get"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "color"
+                ],
+                "summary": "Update color",
+                "parameters": [
+                    {
+                        "description": "object Data",
+                        "name": "name",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "$ref": "#/definitions/api.Simple.Get"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.APIError"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "color"
+                ],
+                "summary": "Delete object",
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "$ref": "#/definitions/api.Simple.Get"
                         }
                     },
                     "500": {
@@ -475,6 +896,20 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "owner": {
+                    "$ref": "#/definitions/api.AnimalOwner.Get"
+                }
+            }
+        },
+        "api.Objet.Post": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "owner_id": {
+                    "type": "integer"
                 }
             }
         },

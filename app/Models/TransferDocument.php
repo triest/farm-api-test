@@ -13,17 +13,17 @@ class TransferDocument extends Model
 
     public function dispatchObject()
     {
-        return $this->morphTo('dispatch_object');
+        return $this->morphTo('dispatchObject');
     }
 
     public function destinationObject()
     {
-        return $this->morphTo('destination_object');
+        return $this->morphTo('destinationObject');
     }
 
     public function transferObject()
     {
-        return $this->morphTo('transfer_object');
+        return $this->morphTo('transferObject');
     }
 
     public function status(){

@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\V1;
 
 use App\DTO\AnimalTransferDTO;
+use App\Http\Controllers\Controller;
+
 use App\Http\Requests\AnimalTransfer\StoreAnimalTransferRequest;
 use App\Http\Requests\AnimalTransfer\UpdateAnimalTransferRequest;
 use App\Http\Resources\Animal\AnimalTransfer\AnimalTransferResource;

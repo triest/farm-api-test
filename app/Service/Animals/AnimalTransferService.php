@@ -16,13 +16,14 @@ class AnimalTransferService
 
     public static function index(Request $request = null)
     {
-        $animalTransfers = TransferDocument::query()->paginate();
+        $animalTransfers = TransferDocument::query()->with('dispatchObject','destinationObject','transferObject','status','dispatchObject')->paginate();
 
         return $animalTransfers;
     }
 
     public static function get(TransferDocument $transferDocument): TransferDocument
     {
+        $transferDocument->load('dispatchObject','destinationObject','transferObject','status');
         return $transferDocument;
     }
 
@@ -68,6 +69,9 @@ class AnimalTransferService
         DB::commit();
 
 
+
+        $transferDocument->load('dispatchObject','destinationObject','transferObject','status');
+
         return $transferDocument;
     }
 
@@ -83,7 +87,7 @@ class AnimalTransferService
         $transferStatus = TransferStatus::query()->where('id', $animalTransferDTO->status_id)->first();
 
         if (!$transferStatus) {
-            return;
+            throw new \Exception("Status not found");
         }
 
 
@@ -136,6 +140,8 @@ class AnimalTransferService
         }
 
         DB::commit();
+
+        $transferDocument->load('dispatchObject','destinationObject','transferObject','status');
 
         return $transferDocument;
     }

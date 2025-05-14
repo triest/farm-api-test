@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\AnimalTransferController;
+use App\Http\Controllers\V1\AnimalColorController;
 use App\Http\Controllers\V1\AnimalController;
+use App\Http\Controllers\V1\AnimalObjectController;
+use App\Http\Controllers\V1\AnimalOwnerController;
+use App\Http\Controllers\V1\AnimalTransferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +29,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
             Route::apiResource('animal', AnimalController::class);
             Route::apiResource('transfer', AnimalTransferController::class);
         });
+
+        Route::apiResource('object', AnimalObjectController::class);
+        Route::apiResource('owner', AnimalOwnerController::class);
+        Route::apiResource('color', AnimalColorController::class);
 
     });
 

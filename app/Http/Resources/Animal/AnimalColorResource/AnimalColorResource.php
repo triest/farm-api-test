@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Resources\Animal\AnimalOwner;
+namespace App\Http\Resources\Animal\AnimalColorResource;
 
+use App\Http\Resources\Animal\AnimalOwner\AnimalOwnerResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AnimalObjectResource extends JsonResource
+class AnimalColorResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,7 +18,6 @@ class AnimalObjectResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'owner' => $this->owner ? AnimalOwnerResource::make( $this->owner) : null
         ];
     }
 }

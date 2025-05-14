@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\Animal;
 
-use App\Http\Resources\Animal\AnimalOwner\AnimalObjectResource;
+use App\Http\Resources\Animal\AnimalObject\AnimalObjectResource;
 use App\Http\Resources\Animal\AnimalOwner\AnimalOwnerResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
