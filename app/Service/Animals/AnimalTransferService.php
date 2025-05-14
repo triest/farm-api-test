@@ -134,9 +134,7 @@ class AnimalTransferService
 
         $transferDocument->save();
 
-
         if ($oldStatus->id !== $transferStatus->id && $transferStatus->slug === TransferStatus::STATUS_COMPLETED) {
-
             $transferDocument->changeOwner();
         }
 

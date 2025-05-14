@@ -851,23 +851,20 @@
                 "id": {
                     "type": "integer"
                 },
-                "number": {
-                    "type": "integer"
+                "date": {
+                    "type": "string"
                 },
-                "gendw": {
-                    "type": "integer"
+                "status": {
+                    "type": "string"
                 },
-                "animal_species_id": {
-                    "type": "integer"
+                "animal": {
+                    "$ref": "#/definitions/api.AnimalObject.Get"
                 },
-                "animal_color_id": {
-                    "type": "integer"
+                "destination": {
+                    "$ref": "#/definitions/api.Objet.Post"
                 },
-                "animal_object_id": {
-                    "type": "integer"
-                },
-                "animal_owner_id": {
-                    "type": "integer"
+                "dispatch": {
+                    "$ref": "#/definitions/api.Objet.Post"
                 }
             }
         },

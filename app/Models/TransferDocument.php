@@ -36,11 +36,10 @@ class TransferDocument extends Model
         $animal = $this->transferObject;
 
         $distinctionObject = $this->dispatchObject;
-
         $animal->animalObject()->associate($distinctionObject);
         $newOwner = $distinctionObject->owner;
 
-        if ($animal->animal_owner_id != $newOwner->id) {
+        if ($animal->animalOwner->id != $newOwner->id) {
             $animal->animalOwner()->associate($newOwner);
         }
         $animal->save();
