@@ -5,6 +5,7 @@ use App\Http\Controllers\V1\AnimalController;
 use App\Http\Controllers\V1\AnimalObjectController;
 use App\Http\Controllers\V1\AnimalOwnerController;
 use App\Http\Controllers\V1\AnimalTransferController;
+use App\Http\Controllers\V1\AnimalTransferStatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::prefix('v1')->group(function () {
         Route::prefix('animal')->group(function () {
             Route::apiResource('animal', AnimalController::class);
-            Route::apiResource('transfer', AnimalTransferController::class);
+            Route::apiResource('transfer/', AnimalTransferController::class);
+            Route::apiResource('transfer/transfer-status', AnimalTransferStatusController::class)->only(['index']);
         });
 
         Route::apiResource('object', AnimalObjectController::class);

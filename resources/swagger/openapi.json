@@ -452,6 +452,34 @@
                 }
             }
         },
+        "/api/v1/transfer/transfer-status": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "transfer"
+                ],
+                "summary": "list of transfers statuses",
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/api.AnimalTransferStatus.Get"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+        },
         "/api/v1/object": {
             "get": {
                 "consumes": [

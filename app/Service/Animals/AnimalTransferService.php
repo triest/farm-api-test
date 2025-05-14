@@ -151,4 +151,9 @@ class AnimalTransferService
         DB::commit();
         return $result;
     }
+
+    public static function statusList()
+    {
+        return TransferStatus::query()->get();
+    }
 }

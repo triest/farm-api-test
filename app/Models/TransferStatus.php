@@ -14,6 +14,7 @@ class TransferStatus extends Model
     public const STATUS_IN_WORK = 'in_work';
     public const STATUS_COMPLETED = 'completed';
     public const STATUS_CANCELLED = 'cancelled';
+    protected $hidden = ['created_at', 'updated_at'];
 
     public static function getStatuses(): array
     {
