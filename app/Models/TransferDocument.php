@@ -29,4 +29,20 @@ class TransferDocument extends Model
     public function status(){
         return $this->belongsTo(TransferStatus::class);
     }
+
+
+    public function changeOwner()
+    {
+        $animal = $this->transferObject;
+
+        $distinctionObject = $this->dispatchObject;
+
+        $animal->animalObject()->associate($distinctionObject);
+        $newOwner = $distinctionObject->owner;
+
+        if ($animal->animal_owner_id != $newOwner->id) {
+            $animal->animalOwner()->associate($newOwner);
+        }
+        $animal->save();
+    }
 }
