@@ -855,7 +855,7 @@
                     "type": "string"
                 },
                 "status": {
-                    "type": "string"
+                    "$ref": "#/definitions/api.AnimalTransferStatus.Get"
                 },
                 "animal": {
                     "$ref": "#/definitions/api.AnimalObject.Get"
@@ -934,7 +934,21 @@
                     "type": "string"
                 }
             }
-        }
+        },
+        "api.AnimalTransferStatus.Get": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                }
+            }
+        },
     },
     "tags": [
         {
